@@ -4,6 +4,7 @@
 #define MAXSIZE 100001
 
 
+
 int main() {
     int size = 0,eachNumber = 0, wish = 0,kthNumber = 0;
     int maxValue=0;
@@ -29,11 +30,21 @@ int main() {
     }
 
     for (int eachNumber = 0; eachNumber < size; ++eachNumber) {
-            sortedInput[appearances[input[eachNumber]]-1] = input[eachNumber];
-            --appearances[input[eachNumber]];
+        sortedInput[appearances[input[eachNumber]]-1] = input[eachNumber];
+        --appearances[input[eachNumber]];
     }
 
     for (int eachNumber = 0; eachNumber < size; ++eachNumber)
         printf("%d ", sortedInput[eachNumber]);
+    long sum = 0;
+    for (int eachNumber = 0; eachNumber < size; ++eachNumber){
+        if(wish==0)
+            break;
+        wish--;
+        sum += sortedInput[size-1-eachNumber];
+    }
+
+    printf("\n%ld\n",sum);
+
     return 0;
-}
+} 
